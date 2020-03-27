@@ -6,7 +6,7 @@ This image is a simple 'Hello world' in an HTTP server to be used to test load b
 It shows ```Hello from <hostname>``` for every request, making it easier to determine what host received the request.
 
 ## Running a simple test
-    docker run --rm -it -p 80:80 strm/helloworld-http
+    docker run --rm -it -p 8080:8080 strm/helloworld-http
 
 Will result in a single instance running on your port 80, you can test and will get a result like it:
     
@@ -22,9 +22,9 @@ Now what this image is made for, test load balancers, create the following ```do
             image: strm/nginx-balancer
             container_name: load-balancer
             ports:
-                - "80:8080"
+                - "8080:8080"
             environment:
-                - "NODES=web1:80 web2:80"
+                - "NODES=web1:8080 web2:8080"
         web1:
             image: strm/helloworld-http
         web2:

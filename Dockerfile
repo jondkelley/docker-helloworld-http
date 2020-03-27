@@ -12,7 +12,7 @@ RUN apt-get update && \
 COPY main.sh /
 RUN mkdir /www
 
-EXPOSE 80
+EXPOSE 8080
 
 WORKDIR /www
 
